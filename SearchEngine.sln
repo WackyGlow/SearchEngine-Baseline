@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchAPI", "SearchAPI\SearchAPI.csproj", "{376C2F6E-858C-470B-BD93-A7C214BF89FB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSearch", "WebSearch\WebSearch.csproj", "{20749D97-1D2E-415A-8B18-B7EBD6E596EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{376C2F6E-858C-470B-BD93-A7C214BF89FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{376C2F6E-858C-470B-BD93-A7C214BF89FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{376C2F6E-858C-470B-BD93-A7C214BF89FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20749D97-1D2E-415A-8B18-B7EBD6E596EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20749D97-1D2E-415A-8B18-B7EBD6E596EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20749D97-1D2E-415A-8B18-B7EBD6E596EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20749D97-1D2E-415A-8B18-B7EBD6E596EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
