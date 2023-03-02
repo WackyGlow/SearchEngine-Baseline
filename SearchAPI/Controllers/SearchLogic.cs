@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ConsoleSearch
+namespace SearchAPI.Controllers
 {
     public class SearchLogic
     {

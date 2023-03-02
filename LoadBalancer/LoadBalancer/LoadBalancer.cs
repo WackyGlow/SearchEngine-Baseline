@@ -3,6 +3,23 @@
 public class LoadBalancer : ILoadBalancer
 
 {
+    private static ILoadBalancer instance;
+
+    private LoadBalancer()
+    {
+        
+    }
+
+    public static ILoadBalancer getInstance()
+    {
+        if (instance == null)
+        {
+            instance = new LoadBalancer();
+        }
+
+        return instance;
+    }
+    
     public List<string> GetAllServices()
     {
         throw new NotImplementedException();

@@ -1,5 +1,4 @@
 ﻿using Common;
-using ConsoleSearch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace SearchAPI.Controllers;

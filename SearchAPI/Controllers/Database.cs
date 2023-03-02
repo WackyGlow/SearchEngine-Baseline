@@ -4,7 +4,7 @@ using System.Linq;
 using Common;
 using Microsoft.Data.Sqlite;
 
-namespace ConsoleSearch
+namespace SearchAPI.Controllers
 {
     public class Database
     {

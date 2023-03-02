@@ -14,7 +14,8 @@ public class LoadBalancerController : ControllerBase
     public Task<SearchResult> SendToNextApi(Task<SearchResult> input)
     {
         var nextService = _loadBalancer.NextService();
-        
+
+
         return null;
     }
 }

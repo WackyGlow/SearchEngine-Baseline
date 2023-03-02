@@ -7,7 +7,8 @@ namespace LoadBalancer.Controllers;
 [Route("[controller]")]
 public class ServiceRegController : ControllerBase
 {
-    private readonly ILoadBalancer _loadBalancer;
+
+    private readonly ILoadBalancer _loadBalancer = LoadBalancer.LoadBalancer.getInstance();
     
     [HttpPost]
     public void registerApiService(string url)
