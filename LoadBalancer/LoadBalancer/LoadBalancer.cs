@@ -1,13 +1,15 @@
-﻿namespace LoadBalancer.LoadBalancer;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+
+namespace LoadBalancer.LoadBalancer;
 
 public class LoadBalancer : ILoadBalancer
 
 {
     private static ILoadBalancer instance;
-
+    private List<string> serviceUrlList;
     private LoadBalancer()
     {
-        
+        serviceUrlList = new List<string>();
     }
 
     public static ILoadBalancer getInstance()
@@ -27,7 +29,8 @@ public class LoadBalancer : ILoadBalancer
 
     public int AddService(string url)
     {
-        throw new NotImplementedException();
+        serviceUrlList.Add(url);
+        return 200;
     }
 
     public int RemoveService(int id)
