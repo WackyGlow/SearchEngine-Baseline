@@ -1,6 +1,10 @@
-﻿namespace LoadBalancer.Controllers;
+﻿using Microsoft.AspNetCore.Mvc;
 
-public class LoadBalancerController
+namespace LoadBalancer.Controllers;
+
+[ApiController]
+[Route("[controller]")]
+public class LoadBalancerController : ControllerBase
 {
     
 }
