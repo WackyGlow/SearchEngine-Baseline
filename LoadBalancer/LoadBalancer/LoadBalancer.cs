@@ -7,12 +7,10 @@ public class LoadBalancer : ILoadBalancer
 {
     private static ILoadBalancer instance;
     private Dictionary<Guid, string> _services;
-    private List<string> serviceUrlList;
     private LoadBalancer()
     {
         _services = new Dictionary<Guid, string>();
-        serviceUrlList = new List<string>();
-        
+
     }
 
     public static ILoadBalancer getInstance()
