@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using LoadBalancer.LoadBalancer;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LoadBalancer.Controllers;
 
@@ -9,7 +10,6 @@ public class ServiceRegController : ControllerBase
 {
 
     private readonly ILoadBalancer _loadBalancer = LoadBalancer.LoadBalancer.getInstance();
-    
     [HttpPost]
     public void RegisterApiService(string url)
     {

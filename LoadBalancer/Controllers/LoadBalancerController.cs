@@ -8,7 +8,7 @@ namespace LoadBalancer.Controllers;
 [Route("[controller]")]
 public class LoadBalancerController : ControllerBase
 {
-    private readonly ILoadBalancer _loadBalancer;
+    private readonly ILoadBalancer _loadBalancer = LoadBalancer.LoadBalancer.getInstance();
     
     [HttpGet] 
     public async Task<string> Search(string terms, int numberOfResults)
@@ -22,8 +22,12 @@ public class LoadBalancerController : ControllerBase
         {
             return new Exception("You done goofed").Message;
         }
-        
         return task.Result;
-        
+    }
+
+    [HttpGet(template:"DevTest")]
+    public List<string> GetAllServices()
+    {
+        return _loadBalancer.GetAllServices();
     }
 }

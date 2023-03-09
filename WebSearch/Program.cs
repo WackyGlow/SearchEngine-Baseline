@@ -16,6 +16,8 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+app.UseCors(config => config.AllowAnyOrigin());
+
 app.UseRouting();
 
 app.UseAuthorization();
