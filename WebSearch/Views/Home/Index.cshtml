@@ -1,9 +1,6 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
-<div class="text-center">
+﻿<div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>To search engine hell</p>
     <div id="myForm">
         <label for="fname">Terms:</label>
         <input type="text" id="fTerms" name="fTerms"><br><br>
@@ -19,26 +16,12 @@
 </div>
 
 <script>
-    //function test(){
-    //    document.getElementById("test1").innerHTML = "hello";
-    //}
-
-    //function getResults()
-    //{
-    //    var terms = document.getElementById("fTerms").value;
-    //    var numberOfResults = document.getElementById("lNumber").value;
-
-    //    const response = fetch(`http://localhost:9000/search?terms=${terms}&numberOfResults=${numberOfResults}`);
-    //    console.log(response);
-    //    const data = response.json();
-    //    console.log(data);
-    //}
     async function getResults() 
     {
         var terms = document.getElementById("fTerms").value;
         var numberOfResults = document.getElementById("lNumber").value;
 
-        const response = await fetch(`http://localhost:9000/search?terms=${terms}&numberOfResults=${numberOfResults}`);
+        const response = await fetch(`http://localhost:9001/loadBalancer?terms=${terms}&numberOfResults=${numberOfResults}`);
         console.log(response);
         const data = await response.json();
         console.log(data);
@@ -59,6 +42,24 @@
         document.getElementById("test1").innerHTML = data.elapsedMilliseconds;
     }
 
-    //document.getElementById("test1").innerHTML = docs;
-    //http://localhost:9000/search?terms=${terms}&numberOfResults=${numberOfResults}
+    
 </script>
+
+
+    @*//function test(){
+    //    document.getElementById("test1").innerHTML = "hello";
+    //}
+
+    //function getResults()
+    //{
+    //    var terms = document.getElementById("fTerms").value;
+    //    var numberOfResults = document.getElementById("lNumber").value;
+
+    //    const response = fetch(`http://localhost:9000/search?terms=${terms}&numberOfResults=${numberOfResults}`);
+    //    console.log(response);
+    //    const data = response.json();
+    //    console.log(data);
+    //}
+
+    //document.getElementById("test1").innerHTML = docs;
+    //http://localhost:9000/search?terms=${terms}&numberOfResults=${numberOfResults}*@
