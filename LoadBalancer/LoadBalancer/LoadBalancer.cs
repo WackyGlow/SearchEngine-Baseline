@@ -51,6 +51,6 @@ public class LoadBalancer : ILoadBalancer
 
     public string NextService()
     {
-        throw new NotImplementedException();
+        return LoadBalancerStrategy.GetInstance().NextService(GetAllServices());
     }
 }
