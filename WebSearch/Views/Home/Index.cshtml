@@ -1,8 +1,64 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <div id="myForm">
+        <label for="fname">Terms:</label>
+        <input type="text" id="fTerms" name="fTerms"><br><br>
+        <label for="lname">Number of results:</label>
+        <input type="text" id="lNumber" name="lNumber"><br><br>
+        <button id="btnSubmit" onclick="getResults()">Submit</button>
+        <label id="test1"></label>
+    </div>
+    <table class="table table-bordered">
+        <tbody id="dataRes">
+        </tbody>
+    </table>
 </div>
+
+<script>
+    //function test(){
+    //    document.getElementById("test1").innerHTML = "hello";
+    //}
+
+    //function getResults()
+    //{
+    //    var terms = document.getElementById("fTerms").value;
+    //    var numberOfResults = document.getElementById("lNumber").value;
+
+    //    const response = fetch(`http://localhost:9000/search?terms=${terms}&numberOfResults=${numberOfResults}`);
+    //    console.log(response);
+    //    const data = response.json();
+    //    console.log(data);
+    //}
+    async function getResults() 
+    {
+        var terms = document.getElementById("fTerms").value;
+        var numberOfResults = document.getElementById("lNumber").value;
+
+        const response = await fetch(`http://localhost:9000/search?terms=${terms}&numberOfResults=${numberOfResults}`);
+        console.log(response);
+        const data = await response.json();
+        console.log(data);
+
+        var temp = "";
+        temp += "<th>Id</th>"
+        temp += "<th>Path</th>"
+        temp += "<th>Number of occurrences</th>"
+        for (i = 0; i < numberOfResults; i++) {
+            
+            temp += "<tr>";
+            temp += "<td>" + data.documents[i].id + "</td>";
+            temp += "<td>" + data.documents[i].path + "</td>";
+            temp += "<td>" + data.documents[i].numberOfOccurrences + "</td>";
+        }
+
+        document.getElementById("dataRes").innerHTML = temp;    
+        document.getElementById("test1").innerHTML = data.elapsedMilliseconds;
+    }
+
+    //document.getElementById("test1").innerHTML = docs;
+    //http://localhost:9000/search?terms=${terms}&numberOfResults=${numberOfResults}
+</script>
