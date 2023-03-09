@@ -38,6 +38,10 @@ public class LoadBalancerStrategy : ILoadBalancerStrategy
         {
             LeastConnection(services);
         }
+        else
+        {
+            RoundRobin(services);
+        }
         return services[_serviceCounter];
     }
 

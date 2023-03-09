@@ -24,26 +24,26 @@ public class LoadBalancer : ILoadBalancer
     
     public List<string> GetAllServices()
     {
-        throw new NotImplementedException();
+        return serviceUrlList;
     }
 
     public int AddService(string url)
     {
         serviceUrlList.Add(url);
-        return 200;
+        return serviceUrlList.Count -1;
     }
 
     public int RemoveService(int id)
     {
-        throw new NotImplementedException();
+        serviceUrlList.RemoveAt(id);
+        return id;
     }
 
     public ILoadBalancerStrategy GetActiveStrategy()
     {
        return LoadBalancerStrategy.GetInstance();
-        
     }
-
+    
     public void SetActiveStrategy(ILoadBalancerStrategy strategy, string newStrategy)
     {
         strategy.SetActiveStrategy(newStrategy);

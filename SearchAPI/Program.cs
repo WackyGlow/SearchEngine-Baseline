@@ -14,7 +14,9 @@ var app = builder.Build();
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    var ownurl = app.Environment.WebRootPath;
 }
+
 app.UseCors(config => config.AllowAnyOrigin());
 
 app.UseHttpsRedirection();
