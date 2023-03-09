@@ -18,6 +18,12 @@ public class LoadBalancerController : ControllerBase
         api.BaseAddress = new Uri(nextService);
         Task<string> task = api.GetStringAsync("/Search?terms=" + terms + "&numberOfResults=" + numberOfResults);
         task.Wait();
+        if (task.Result == null)
+        {
+            return new Exception("You done goofed").Message;
+        }
+        
         return task.Result;
+        
     }
 }

@@ -3,9 +3,13 @@
 public interface ILoadBalancerStrategy
 {
 
+    public string GetActiveStrategy();
+
+    public string SetActiveStrategy(string newStrategy);
+
     public string NextService(List<string> services);
 
-    public Task<string> RoundRobin();
+    public string RoundRobin(List<string> services);
 
-    public Task<string> IpHash();
+    public string LeastConnection(List<string> services);
 }

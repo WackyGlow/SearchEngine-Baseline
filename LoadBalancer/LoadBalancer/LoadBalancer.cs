@@ -40,12 +40,13 @@ public class LoadBalancer : ILoadBalancer
 
     public ILoadBalancerStrategy GetActiveStrategy()
     {
-        throw new NotImplementedException();
+       return LoadBalancerStrategy.GetInstance();
+        
     }
 
-    public void SetActiveStrategy(ILoadBalancerStrategy strategy)
+    public void SetActiveStrategy(ILoadBalancerStrategy strategy, string newStrategy)
     {
-        throw new NotImplementedException();
+        strategy.SetActiveStrategy(newStrategy);
     }
 
     public string NextService()
