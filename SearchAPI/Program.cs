@@ -1,4 +1,14 @@
+using RestSharp;
+
 var builder = WebApplication.CreateBuilder(args);
+
+var restClient = new RestClient("https://load-balancer");
+restClient.Post(new RestRequest("configuration", Method.Post)
+    .AddJsonBody(new
+    {
+        Url = "http://" + Environment.MachineName,
+    }));
+Console.WriteLine("Hostname: " + Environment.MachineName);
 
 // Add services to the container.
 
@@ -14,7 +24,6 @@ var app = builder.Build();
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-    var ownurl = app.Environment.WebRootPath;
 }
 
 app.UseCors(config => config.AllowAnyOrigin());

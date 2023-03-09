@@ -22,7 +22,7 @@ namespace ConsoleSearch
                 string input = Console.ReadLine() ?? string.Empty;
                 if (input.Equals("q")) break;
 
-                Task<string> task = api.GetStringAsync("/Search?terms=" + input + "&numberOfResults=10");
+                Task<string> task = api.GetStringAsync("/LoadBalancer?terms=" + input + "&numberOfResults=10");
                 task.Wait();
                 string resultString = task.Result;
                 SearchResult result = JsonConvert.DeserializeObject<SearchResult>(resultString);
