@@ -2,7 +2,7 @@ using RestSharp;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var restClient = new RestClient("http://localhost:9001");
+var restClient = new RestClient("http://balancer");
 restClient.Post(new RestRequest("configuration", Method.Post)
     .AddJsonBody(new
     {
