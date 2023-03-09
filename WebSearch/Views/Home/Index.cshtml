@@ -21,7 +21,7 @@
         var terms = document.getElementById("fTerms").value;
         var numberOfResults = document.getElementById("lNumber").value;
 
-        const response = await fetch(`http://localhost:9001/loadBalancer?terms=${terms}&numberOfResults=${numberOfResults}`);
+        const response = await fetch(`http://localhost:9001/LoadBalancer?terms=${terms}&numberOfResults=${numberOfResults}`);
         //const response = await fetch(`http://localhost:9000/search?terms=${terms}&numberOfResults=${numberOfResults}`);
         console.log(response);
         const data = await response.json();

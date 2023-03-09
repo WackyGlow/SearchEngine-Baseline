@@ -6,10 +6,13 @@ public class LoadBalancer : ILoadBalancer
 
 {
     private static ILoadBalancer instance;
+    private Dictionary<Guid, string> _services;
     private List<string> serviceUrlList;
     private LoadBalancer()
     {
+        _services = new Dictionary<Guid, string>();
         serviceUrlList = new List<string>();
+        
     }
 
     public static ILoadBalancer getInstance()
@@ -22,19 +25,22 @@ public class LoadBalancer : ILoadBalancer
         return instance;
     }
     
-    public List<string> GetAllServices()
+    public Dictionary<Guid, string> GetAllServices()
     {
-        return serviceUrlList;
+        return _services;
     }
 
-    public void AddService(string url)
+    public Guid AddService(string url)
     {
-        serviceUrlList.Add(url);    
+        var id = Guid.NewGuid();
+        _services.Add(id,url);
+        return id;
     }
+    
 
-    public int RemoveService(int id)
+    public Guid RemoveService(Guid id)
     {
-        serviceUrlList.RemoveAt(id);
+        _services.Remove(id);
         return id;
     }
 

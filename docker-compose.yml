@@ -5,18 +5,18 @@ services:
     build:
         context: .
         dockerfile: "SearchAPI/Dockerfile"
-    ports:
-        - 9000:80
     volumes:
         - C:\\DLS:/data
     deploy:
-      replicas: 1
+      replicas: 2
+    depends_on:
+      - balancer
   web:
     build:
         context: .
         dockerfile: "WebSearch/Dockerfile"
     ports:
-        - 9002:80
+        - "9002-9010:80"
     deploy:
       replicas: 1
   balancer:
@@ -24,6 +24,6 @@ services:
       context: .
       dockerfile: "LoadBalancer/Dockerfile"
     ports:
-      - 9001:80
+      - "9011:80"
     deploy:
       replicas: 1

@@ -12,7 +12,7 @@ namespace ConsoleSearch
         public void Run()
         {
             HttpClient api = new HttpClient();
-            api.BaseAddress = new Uri("http://localhost:9001");
+            api.BaseAddress = new Uri("http://localhost:9011");
             //SearchLogic mSearchLogic = new SearchLogic(new Database());
             Console.WriteLine("Console Search");
             

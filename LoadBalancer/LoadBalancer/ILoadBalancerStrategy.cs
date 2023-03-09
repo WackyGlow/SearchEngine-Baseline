@@ -7,9 +7,9 @@ public interface ILoadBalancerStrategy
 
     public string SetActiveStrategy(string newStrategy);
 
-    public string NextService(List<string> services);
+    public string NextService(Dictionary<Guid, string> services);
 
-    public string RoundRobin(List<string> services);
+    public string RoundRobin(Dictionary<Guid, string> services);
 
-    public string LeastConnection(List<string> services);
+    public string LeastConnection(Dictionary<Guid, string> services);
 }

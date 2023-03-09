@@ -29,8 +29,12 @@ public class LoadBalancerStrategy : ILoadBalancerStrategy
         _chosenStrategy = newStrategy.ToLower();
         return _chosenStrategy + "is now the chosen strategy";
     }
-    public string NextService(List<string> services)
+    public string NextService(Dictionary<Guid,string> services)
     {
+        if (services.Count == 0)
+        {
+            return "";
+        }
         if (_chosenStrategy == "roundrobin")
         {
             RoundRobin(services);
@@ -42,23 +46,23 @@ public class LoadBalancerStrategy : ILoadBalancerStrategy
         {
             RoundRobin(services);
         }
-        return services[_serviceCounter];
+        return services.ElementAt(_serviceCounter).Value;
     }
 
-    public string RoundRobin(List<string> services)
+    public string RoundRobin(Dictionary<Guid, string> services)
     {
         int index = _serviceCounter % services.Count;
-        string nextService = services[index];
+        var nextService = services.ElementAt(index);
 
         if (_serviceCounter !> services.Count - 1)
         {
             _serviceCounter = 0;
         }
         _serviceCounter++;
-        return nextService;
+        return nextService.Value;
     }
 
-    public string LeastConnection(List<string> services)
+    public string LeastConnection(Dictionary<Guid, string> services)
     {
         throw new NotImplementedException();
     }

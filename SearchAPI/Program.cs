@@ -3,7 +3,7 @@ using RestSharp;
 var builder = WebApplication.CreateBuilder(args);
 
 var restClient = new RestClient("http://balancer");
-restClient.Post(new RestRequest("/ServiceReq?url=", Method.Post)
+restClient.Post(new RestRequest("/ServiceReg?url=http://" + Environment.MachineName, Method.Post)
     .AddJsonBody(new
     {
         Url = "http://" + Environment.MachineName,
