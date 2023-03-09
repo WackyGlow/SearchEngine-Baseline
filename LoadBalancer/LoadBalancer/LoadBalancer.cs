@@ -27,10 +27,9 @@ public class LoadBalancer : ILoadBalancer
         return serviceUrlList;
     }
 
-    public int AddService(string url)
+    public void AddService(string url)
     {
-        serviceUrlList.Add(url);
-        return serviceUrlList.Count -1;
+        serviceUrlList.Add(url);    
     }
 
     public int RemoveService(int id)

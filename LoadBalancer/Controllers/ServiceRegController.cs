@@ -11,8 +11,8 @@ public class ServiceRegController : ControllerBase
 
     private readonly ILoadBalancer _loadBalancer = LoadBalancer.LoadBalancer.getInstance();
     [HttpPost]
-    public void RegisterApiService(string url)
+    public void RegisterApiService([FromQuery]string url)
     {
-        _loadBalancer.AddService(url);
+        LoadBalancer.LoadBalancer.getInstance().AddService(url);
     }
 }
