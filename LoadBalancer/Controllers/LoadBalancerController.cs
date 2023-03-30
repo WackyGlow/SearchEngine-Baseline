@@ -18,7 +18,9 @@ public class LoadBalancerController : ControllerBase
         var nextService = _loadBalancer.NextService();
         HttpClient api = new HttpClient();
         api.BaseAddress = new Uri(nextService);
-        Task<string> task = api.GetStringAsync("/Search?terms=" + terms + "&numberOfResults=" + numberOfResults);
+        Task<string> task = api.GetStringAsync("/Search?terms=" 
+                                               + terms + "&numberOfResults=" 
+                                               + numberOfResults);
         task.Wait();
         if (task.Result != null)
         {

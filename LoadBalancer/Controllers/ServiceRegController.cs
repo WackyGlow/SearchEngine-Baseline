@@ -13,6 +13,6 @@ public class ServiceRegController : ControllerBase
     [HttpPost]
     public void RegisterApiService([FromQuery]string url)
     {
-        LoadBalancer.LoadBalancer.getInstance().AddService(url);
+        _loadBalancer.AddService(url);
     }
 }

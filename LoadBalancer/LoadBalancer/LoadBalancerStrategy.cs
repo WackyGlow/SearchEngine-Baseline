@@ -33,7 +33,7 @@ public class LoadBalancerStrategy : ILoadBalancerStrategy
     {
         if (services.Count == 0)
         {
-            return "";
+            return "No Available Services";
         }
         if (_chosenStrategy == "roundrobin")
         {
@@ -51,14 +51,17 @@ public class LoadBalancerStrategy : ILoadBalancerStrategy
 
     public string RoundRobin(Dictionary<Guid, string> services)
     {
-        int index = _serviceCounter % services.Count;
-        var nextService = services.ElementAt(index);
-
-        if (_serviceCounter !> services.Count - 1)
+        // If there are no services available, return null.
+        if (services.Count == 0)
         {
-            _serviceCounter = 0;
+            return null;
         }
-        _serviceCounter++;
+        // Get the service at the current index.
+        var nextService = services.ElementAt(_serviceCounter);
+        
+        // Increment the index and wrap around if it goes beyond the last index.
+        _serviceCounter = (_serviceCounter + 1) % services.Count;
+        
         return nextService.Value;
     }
 
