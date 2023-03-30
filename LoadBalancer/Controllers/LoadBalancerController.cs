@@ -18,15 +18,18 @@ public class LoadBalancerController : ControllerBase
         var nextService = _loadBalancer.NextService();
         HttpClient api = new HttpClient();
         api.BaseAddress = new Uri(nextService);
+        Console.WriteLine("Sending request to: " + nextService 
+                                                 + $", using terms: {terms} and number of results: {numberOfResults}");
         Task<string> task = api.GetStringAsync("/Search?terms=" 
                                                + terms + "&numberOfResults=" 
                                                + numberOfResults);
         task.Wait();
         if (task.Result != null)
         {
+            Console.WriteLine("I recieved this response: " + task.Result);
             return task.Result;
         }
-
+        Console.WriteLine("I did not recieve an answer, I will now delete this service from the dictionary");
         return "something went wrong";
     }
     
