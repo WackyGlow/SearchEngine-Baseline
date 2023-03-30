@@ -67,6 +67,44 @@ public class LoadBalancerStrategy : ILoadBalancerStrategy
 
     public string LeastConnection(Dictionary<Guid, string> services)
     {
-        throw new NotImplementedException();
+        //MAY NOT WORK! progably...
+        // Initialize variables
+        List<Service> _services = new List<Service>();
+        int minConnections = int.MaxValue;
+        List<Service> list = new List<Service>();
+        
+        // Find the services with the minimum number of connections
+        foreach(var service in _services) {
+            if(service.Connections < minConnections)
+            {
+                // If a new minimum is found, clear the list of services with the previous minimum
+                minConnections = service.Connections;
+                list.Clear();
+            }
+            
+            // Add the current service to the list of services with the current minimum
+            if (service.Connections == minConnections) {
+                list.Add(service);
+            }
+        }
+        
+        // Choose a random service from the list of services with the current minimum
+        var random = new Random();
+        int index = random.Next(list.Count);
+        var chosenService = list[index];
+
+        // Increment the number of connections for the chosen service
+        foreach (var service in _services) {
+            if (service.Url.Equals(chosenService.Url))
+            {
+                service.Connections++;
+            }
+        }
+        
+        // Output the service that was used and the number of connections it now has
+        Console.WriteLine("Used service:" + chosenService.Url + " Connections: " + chosenService.Connections);
+
+        // Return the URL of the chosen service
+        return chosenService.Url;
     }
 }
