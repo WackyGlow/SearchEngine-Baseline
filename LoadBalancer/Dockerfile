@@ -5,6 +5,7 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
+RUN rm -rf /root/.nuget
 COPY ["LoadBalancer/LoadBalancer.csproj", "LoadBalancer/"]
 RUN dotnet restore "LoadBalancer/LoadBalancer.csproj"
 COPY . .
