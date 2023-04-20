@@ -403,3 +403,6 @@ ASALocalRun/
 
 # Local History for Visual Studio
 .localhistory/
+.vs/slnx.sqlite
+.vs/SearchEngine-Baseline/FileContentIndex/95bc6f48-ef37-47ba-a520-22576aa60842.vsidx
+.vs/SearchEngine-Baseline/FileContentIndex/8d8eae63-c6d7-4165-bee7-33153413125c.vsidx
