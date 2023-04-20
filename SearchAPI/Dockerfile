@@ -6,7 +6,6 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["SearchAPI/SearchAPI.csproj", "SearchAPI/"]
-COPY ["Common/Common.csproj", "Common/"]
 RUN dotnet restore "SearchAPI/SearchAPI.csproj"
 COPY . .
 WORKDIR "/src/SearchAPI"
