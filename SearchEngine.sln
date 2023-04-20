@@ -1,19 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.810.10
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33502.453
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Indexer", "Indexer\Indexer.csproj", "{7F4ADC70-20AE-423B-9D46-FABEE2E9F5D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Indexer", "Indexer\Indexer.csproj", "{7F4ADC70-20AE-423B-9D46-FABEE2E9F5D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleSearch", "ConsoleSearch\ConsoleSearch.csproj", "{8DF99C5C-09E2-430F-8DAD-5052DF2A9076}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleSearch", "ConsoleSearch\ConsoleSearch.csproj", "{8DF99C5C-09E2-430F-8DAD-5052DF2A9076}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{CE712703-C16E-4CB9-B118-A07B582E45DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csproj", "{CE712703-C16E-4CB9-B118-A07B582E45DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchAPI", "SearchAPI\SearchAPI.csproj", "{376C2F6E-858C-470B-BD93-A7C214BF89FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SearchAPI", "SearchAPI\SearchAPI.csproj", "{376C2F6E-858C-470B-BD93-A7C214BF89FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSearch", "WebSearch\WebSearch.csproj", "{20749D97-1D2E-415A-8B18-B7EBD6E596EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebSearch", "WebSearch\WebSearch.csproj", "{20749D97-1D2E-415A-8B18-B7EBD6E596EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoadBalancer", "LoadBalancer\LoadBalancer.csproj", "{CD803C42-A82F-48FA-A874-94038C9C584C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoadBalancer", "LoadBalancer\LoadBalancer.csproj", "{CD803C42-A82F-48FA-A874-94038C9C584C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchStatistics", "SearchStatistics\SearchStatistics.csproj", "{B5595309-394A-4303-92F0-26AAF5A8BC9E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{CD803C42-A82F-48FA-A874-94038C9C584C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD803C42-A82F-48FA-A874-94038C9C584C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD803C42-A82F-48FA-A874-94038C9C584C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5595309-394A-4303-92F0-26AAF5A8BC9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5595309-394A-4303-92F0-26AAF5A8BC9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5595309-394A-4303-92F0-26AAF5A8BC9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5595309-394A-4303-92F0-26AAF5A8BC9E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

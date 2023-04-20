@@ -4,6 +4,7 @@ namespace Common
     {
         public static string DatabasePath { get; } = "/data/database.db";
         public static string DataSourcePath { get; } = "/data/source";
+        public static string SearchStatisticsDB { get; } = "/data/searchStats.db";
         public static int NumberOfFoldersToIndex { get; } = 10; // Use 0 or less for indexing all folders
     }
 }
