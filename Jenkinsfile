@@ -23,7 +23,7 @@ pipeline {
         }
         stage("C. Dep") {
             steps {
-                build job: "SearchEngine-Rollback", parameters: [[$class: "StringParameterValue", name: "DEPLOY_NUMBER", value: "${BUILD_NUMBER}"]]
+                build job: "SearchEngine", parameters: [[$class: "StringParameterValue", name: "DEPLOY_NUMBER", value: "${BUILD_NUMBER}"]]
             }
         }
     }
