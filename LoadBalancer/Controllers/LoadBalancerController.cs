@@ -15,6 +15,7 @@ public class LoadBalancerController : ControllerBase
     [HttpGet] 
     public async Task<string> Search(string terms, int numberOfResults)
     {
+        Console.WriteLine($"I recieved a request with ¨{terms}¨ and ¨{numberOfResults}¨ as parameters");
         var nextService = _loadBalancer.NextService();
         HttpClient api = new HttpClient();
         api.BaseAddress = new Uri(nextService);
