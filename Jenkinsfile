@@ -1,7 +1,7 @@
 pipeline {
     agent any
     triggers {
-        pollSCM("* * * * *")
+        pollSCM("30 * * * *")
     }
     environment {
         DEPLOY_NUMBER = "${BUILD_NUMBER}"
