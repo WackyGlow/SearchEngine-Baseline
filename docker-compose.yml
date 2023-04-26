@@ -33,3 +33,5 @@ services:
         dockerfile: "SearchStatistics/Dockerfile"
     volumes:
         - C:\\DLS:/data
+    ports:
+      - "9012:80"
