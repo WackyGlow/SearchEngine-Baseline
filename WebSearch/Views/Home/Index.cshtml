@@ -6,7 +6,7 @@
         <input type="text" id="fTerms" name="fTerms"><br><br>
         <label for="lname">Number of results:</label>
         <input type="text" id="lNumber" name="lNumber"><br><br>
-        <button id="btnSubmit" onclick="getResults()">Submit</button>
+        <button id="btnSubmit" onclick="getResults(), postStats()">Submit</button>
         <label id="test1"></label>
     </div>
     <table class="table table-bordered">
@@ -15,7 +15,7 @@
     </table>
 </div>
 
-<script>
+<script>    
     async function getResults() 
     {
         var terms = document.getElementById("fTerms").value;
@@ -41,6 +41,31 @@
 
         document.getElementById("dataRes").innerHTML = temp;    
         document.getElementById("test1").innerHTML = data.elapsedMilliseconds;
+    }
+    async function postStats() {
+        var terms = document.getElementById("fTerms").value;
+        const statsData = { "query": terms };
+
+        fetch('http://localhost:9012/words', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(statsData)
+        })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                }
+                throw new Error('Network response was not ok.');
+            })
+            .then(data => {
+                console.log(statsData);
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+            });
     }
 
     
