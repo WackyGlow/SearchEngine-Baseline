@@ -27,3 +27,9 @@ services:
       - "9011:80"
     deploy:
       replicas: 1
+  api:
+    build:
+        context: .
+        dockerfile: "SearchStatistics/Dockerfile"
+    volumes:
+        - C:\\DLS:/data
