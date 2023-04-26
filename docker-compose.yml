@@ -5,6 +5,7 @@ services:
     build:
         context: .
         dockerfile: "SearchAPI/Dockerfile"
+    image: wackyglow/
     volumes:
         - C:\\DLS:/data
     deploy:
@@ -18,7 +19,6 @@ services:
     ports:
         - "9002-9010:80"
     deploy:
-      replicas: 1
   balancer:
     build:
       context: .
@@ -26,7 +26,6 @@ services:
     ports:
       - "9011:80"
     deploy:
-      replicas: 1
   searchstatsapi:
     build:
         context: .
