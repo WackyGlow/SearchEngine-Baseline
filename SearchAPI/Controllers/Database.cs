@@ -17,14 +17,12 @@ namespace SearchAPI.Controllers
             _connection = new SqliteConnection(connectionStringBuilder.ConnectionString);
             _connection.Open();
         }
-
         private async Task Execute(string sql)
         {
             var cmd = _connection.CreateCommand();
             cmd.CommandText = sql;
             cmd.ExecuteNonQueryAsync();
         }
-
         // key is the id of the document, the value is number of search words in the document
         public async Task<List<KeyValuePair<int, int>>> GetDocuments(List<int> wordIds)
         {
@@ -50,13 +48,10 @@ namespace SearchAPI.Controllers
 
             return res;
         }
-
         private string AsString(List<int> x)
         {
             return string.Concat("(", string.Join(',', x.Select(i => i.ToString())), ")");
         }
-
-
         public async Task<Dictionary<string, int>> GetAllWords()
         {
             Dictionary<string, int> res = new Dictionary<string, int>();
@@ -80,7 +75,6 @@ namespace SearchAPI.Controllers
         public async Task<List<string>> GetDocDetails(List<int> docIds)
         {
             List<string> res = new List<string>();
-
             var selectCmd = _connection.CreateCommand();
             selectCmd.CommandText = "SELECT * FROM document where id in " + AsString(docIds);
 
