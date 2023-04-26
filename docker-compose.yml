@@ -5,7 +5,7 @@ services:
     build:
         context: .
         dockerfile: "SearchAPI/Dockerfile"
-    image: wackyglow/
+    image: wackyglow/search-engine-api:${DEPLOY_NUMBER}
     volumes:
         - C:\\DLS:/data
     deploy:
@@ -16,18 +16,21 @@ services:
     build:
         context: .
         dockerfile: "WebSearch/Dockerfile"
+    image: wackyglow/search-engine-web:${DEPLOY_NUMBER}
     ports:
         - "9002-9010:80"
   balancer:
     build:
       context: .
       dockerfile: "LoadBalancer/Dockerfile"
+    image: wackyglow/search-engine-balancer:${DEPLOY_NUMBER}
     ports:
       - "9011:80"
   searchstatsapi:
     build:
         context: .
         dockerfile: "SearchStatistics/Dockerfile"
+    image: wackyglow/search-engine-searchstatapi:${DEPLOY_NUMBER}
     volumes:
         - C:\\DLS:/data
     ports:
