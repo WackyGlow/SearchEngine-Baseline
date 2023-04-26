@@ -18,14 +18,12 @@ services:
         dockerfile: "WebSearch/Dockerfile"
     ports:
         - "9002-9010:80"
-    deploy:
   balancer:
     build:
       context: .
       dockerfile: "LoadBalancer/Dockerfile"
     ports:
       - "9011:80"
-    deploy:
   searchstatsapi:
     build:
         context: .
