@@ -5,6 +5,7 @@ services:
     build:
         context: .
         dockerfile: "SearchAPI/Dockerfile"
+    image: 
     volumes:
         - C:\\DLS:/data
     deploy:
@@ -27,3 +28,14 @@ services:
       - "9011:80"
     deploy:
       replicas: 1
+  
+  featurehub:
+    image: featurehub/party-server:latest
+    restart: always
+    volumes:
+      - featurehub-h2-data:/db
+    ports:
+      - 8085:8085
+
+  volumes:
+    featurehub-h2-data:
