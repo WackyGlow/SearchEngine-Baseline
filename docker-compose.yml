@@ -27,7 +27,7 @@ services:
       - "9011:80"
     deploy:
       replicas: 1
-  searchStatsApi:
+  searchstatsapi:
     build:
         context: .
         dockerfile: "SearchStatistics/Dockerfile"
