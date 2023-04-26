@@ -2,7 +2,7 @@ using SearchStatistics.DatabaseFolder;
 
 public class Program
 {
-    public static Database db;
+    public static Database? db;
     private static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
