@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using Common;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace ConsoleSearch
 {
@@ -12,7 +15,9 @@ namespace ConsoleSearch
         public void Run()
         {
             HttpClient api = new HttpClient();
+            HttpClient searchStatsApi = new HttpClient();
             api.BaseAddress = new Uri("http://localhost:9011");
+            searchStatsApi.BaseAddress = new Uri("http://localhost:9012");
             //SearchLogic mSearchLogic = new SearchLogic(new Database());
             Console.WriteLine("Console Search");
             
@@ -26,6 +31,16 @@ namespace ConsoleSearch
                 task.Wait();
                 string resultString = task.Result;
                 SearchResult result = JsonConvert.DeserializeObject<SearchResult>(resultString);
+
+                var data = JObject.FromObject(new
+                {
+                    query = input
+                });
+
+                var searchStatsTask = searchStatsApi.PostAsync("/words",
+                                  new StringContent(JsonConvert.SerializeObject(data),
+                                  Encoding.UTF8, "application/json")).Result;
+                
 
                 foreach (var ignored in result.IgnoredTerms)
                 {
